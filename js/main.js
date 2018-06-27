@@ -44,6 +44,17 @@ function saveBookmark(e){
 }
 
 
+function deleteBookmark(url){
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  for(var i =0;i < bookmarks.length;i++){
+    if(bookmarks[i].url == url){
+      bookmarks.splice(i, 1);
+    }
+  }
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  fetchBookmarks();
+
+}
 
 
 // Fetch bookmarks
